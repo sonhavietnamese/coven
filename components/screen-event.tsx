@@ -69,7 +69,7 @@ export default function ScreenEvent({ event }: ScreenEventProps) {
                         <Drawer.Title className='font-medium mb-4'>Unstyled drawer for React.</Drawer.Title>
                         <p className='text-zinc-600 mb-2'>This component can be used as a replacement for a Dialog on mobile and tablet devices.</p>
                         <p className='text-zinc-600 mb-8'>It uses {index}</p>
-                        <Link href={'https://t.me/' + attendee.username}>Connect</Link>
+                        <Link href={'https://web.telegram.org/a/#932607121'}>Connect</Link>
                         {/* <button className='text-black' onClick={()}>Connect</button> */}
                       </div>
                     </div>

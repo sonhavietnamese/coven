@@ -70,6 +70,7 @@ export default function ScreenEvent({ event }: ScreenEventProps) {
                         <p className='text-zinc-600 mb-2'>This component can be used as a replacement for a Dialog on mobile and tablet devices.</p>
                         <p className='text-zinc-600 mb-8'>It uses {index}</p>
                         <Link href={'tg://openmessage?user_id=932607121'}>Connect</Link>
+                        <Link href={'tg://user?id=932607121'}>Connect</Link>
                         {/* <button className='text-black' onClick={()}>Connect</button> */}
                       </div>
                     </div>

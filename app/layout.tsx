@@ -29,7 +29,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head />
       <body className={clsx('min-h-screen bg-white font-sans antialiased overscroll-none', fontSans.variable, integral.variable, lemon.variable)}>
         <Providers themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
-          <Root>{children}</Root>
+          <div vaul-drawer-wrapper='' className='bg-white'>
+            <Root>{children}</Root>
+          </div>
         </Providers>
       </body>
     </html>

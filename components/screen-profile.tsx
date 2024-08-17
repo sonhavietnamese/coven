@@ -25,6 +25,7 @@ export default function ScreenProfile({ user }: ScreenProfileProps) {
       <div className='flex flex-col items-center'>
         <motion.div
           transition={{ ease: [0.65, 0.05, 0.36, 1], duration: 0.44 }}
+          animate={{ rotate: 22.5 * 3 }}
           layoutId='avatar'
           className='avatar-symbol-mask w-20 h-20 aspect-square '>
           <Avatar name={user.id.toString()} square={true} size={80} />

@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-export type Screen = 'home' | 'profile' | 'settings'
+export type Screen = 'home' | 'profile' | 'settings' | 'event'
 
 interface ScreenState {
   current: Screen
@@ -8,6 +8,6 @@ interface ScreenState {
 }
 
 export const useScreen = create<ScreenState>()((set) => ({
-  current: 'home',
+  current: 'event',
   setScreen: (screen) => set({ current: screen }),
 }))

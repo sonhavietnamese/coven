@@ -25,6 +25,8 @@ export const Link: FC<LinkProps> = ({ className, onClick: propsOnClick, href, ..
 
       if (isExternal) {
         e.preventDefault()
+
+        console.log('isExternal', targetUrl.toString())
         utils && utils.openLink(targetUrl.toString())
       }
     },

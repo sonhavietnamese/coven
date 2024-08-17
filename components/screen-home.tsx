@@ -1,12 +1,19 @@
 import { motion } from 'framer-motion'
 import Masonry from 'react-responsive-masonry'
+import { Event } from '@/types'
+import { Drawer } from 'vaul'
 
-export default function ScreenHome() {
+interface ScreenHomeProps {
+  events: Event[]
+  onChangeEvent: (event: Event) => void
+}
+
+export default function ScreenHome({ events, onChangeEvent }: ScreenHomeProps) {
   return (
     <>
       <motion.section
         transition={{
-          delay: 0.5,
+          delay: 0.3,
         }}
         initial={{
           opacity: 0,
@@ -16,7 +23,7 @@ export default function ScreenHome() {
           opacity: 1,
           y: 0,
         }}
-        className='w-full rounded-[20px] h-[220px] overflow-hidden relative no-scrollbar'>
+        className='w-full rounded-[20px] h-[250px] overflow-hidden relative no-scrollbar'>
         <img
           src='https://blog.pintu.co.id/wp-content/uploads/2022/12/Kalender-Bitcoin_Token2049-Singapore-2023-1024x778.jpg'
           alt=''
@@ -39,12 +46,8 @@ export default function ScreenHome() {
 
       <section className='w-full overflow-auto no-scrollbar'>
         <Masonry columnsCount={2} gutter='0.75rem' className='no-scrollbar'>
-          {Array.from({ length: 10 }).map((_, index) => (
+          {events.map((event, index) => (
             <motion.div
-              transition={{
-                delay: 0.6 + 0.03 * index,
-                ease: [0.77, 0, 0.18, 1],
-              }}
               initial={{
                 opacity: 0,
                 y: -10,
@@ -52,13 +55,17 @@ export default function ScreenHome() {
               animate={{
                 opacity: 1,
                 y: 0,
+                transition: {
+                  delay: 0.4 + 0.03 * index,
+                  ease: [0.77, 0, 0.18, 1],
+                },
               }}
-              exit={{
-                opacity: 0,
-                y: -10,
-              }}
+              key={index}
+              whileTap={{ scale: 0.95, transition: { delay: 0 }, name: 'tap' }}
+              onMouseUp={() => onChangeEvent(event)}
               className='w-full h-fit bg-red-400 rounded-[20px] overflow-hidden relative'>
-              <img
+              <motion.img
+                layoutId={`event-${event.id}-image`}
                 src='https://blog.pintu.co.id/wp-content/uploads/2022/12/Kalender-Bitcoin_Token2049-Singapore-2023-1024x778.jpg'
                 alt=''
                 className='w-full h-full object-cover'
@@ -68,8 +75,8 @@ export default function ScreenHome() {
                 <small className='leading-none p-2 bg-black/30 rounded-full px-3 py-1.5 font-lemon backdrop-blur-sm text-white/80'>Happening</small>
               </div>
 
-              <div className='absolute z-20 w-full justify-between items-end h-fit p-4 bottom-0 flex bg-gradient-to-b from-white/0 via-[#232323]/30 to-black/70'>
-                <span className=' font-integral leading-none'>Asia’s premier crypto</span>
+              <div className='absolute z-20 w-full text-left h-fit p-4 bottom-0 flex bg-gradient-to-b from-white/0 via-[#232323]/30 to-black/70'>
+                <motion.span className=' font-integral leading-none'>Asia’s premier crypto</motion.span>
               </div>
             </motion.div>
           ))}

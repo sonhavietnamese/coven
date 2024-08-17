@@ -1,3 +1,4 @@
+import { User } from '@telegram-apps/sdk-react'
 import { SVGProps } from 'react'
 
 export type IconSvgProps = SVGProps<SVGSVGElement> & {
@@ -9,5 +10,10 @@ export type Event = {
   title: string
   description: string
   image: string
-  // participants: User[]
+  participants: {
+    id: string
+    firstName: string
+    lastName: string
+    username: string
+  }[]
 }

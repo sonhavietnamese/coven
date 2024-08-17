@@ -9,27 +9,7 @@ import { useInitData, type User } from '@telegram-apps/sdk-react'
 import Avatar from 'boring-avatars'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-
-const DUMMY_EVENTS = Array.from({ length: 5 }).map((_, index) => ({
-  id: index,
-  title: 'Asia’s premier crypto',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  image: 'https://blog.pintu.co.id/wp-content/uploads/2022/12/Kalender-Bitcoin_Token2049-Singapore-2023-1024x778.jpg',
-  participants: [
-    {
-      id: 1,
-      firstName: 'John',
-      lastName: 'Doe',
-      username: 'johndoe',
-    },
-    {
-      id: 2,
-      firstName: 'Jane',
-      lastName: 'Doe',
-      username: 'janedoe',
-    },
-  ],
-}))
+import { DUMMY_EVENTS } from './data'
 
 export default function Home() {
   const initData = useInitData()

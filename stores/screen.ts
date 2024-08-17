@@ -8,6 +8,6 @@ interface ScreenState {
 }
 
 export const useScreen = create<ScreenState>()((set) => ({
-  current: 'event',
+  current: 'home',
   setScreen: (screen) => set({ current: screen }),
 }))

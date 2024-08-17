@@ -61,22 +61,20 @@ export default function ScreenHome({ events, onChangeEvent }: ScreenHomeProps) {
                 },
               }}
               key={index}
-              whileTap={{ scale: 0.95, transition: { delay: 0 }, name: 'tap' }}
+              whileTap={{ scale: 0.95, transition: { delay: 0 } }}
               onMouseUp={() => onChangeEvent(event)}
-              className='w-full h-fit bg-red-400 rounded-[20px] overflow-hidden relative'>
-              <motion.img
-                layoutId={`event-${event.id}-image`}
-                src='https://blog.pintu.co.id/wp-content/uploads/2022/12/Kalender-Bitcoin_Token2049-Singapore-2023-1024x778.jpg'
-                alt=''
-                className='w-full h-full object-cover'
-              />
+              className='w-full bg-red-400 rounded-[20px] overflow-hidden relative'
+              style={{
+                height: 200 + Math.floor(Math.random() * 71) + 'px',
+              }}>
+              <motion.img layoutId={`event-${event.id}-image`} src={event.image} alt='' className='w-auto h-[150%] object-cover' />
 
               <div className='absolute z-20 w-[50%] h-fit p-2 top-0 '>
                 <small className='leading-none p-2 bg-black/30 rounded-full px-3 py-1.5 font-lemon backdrop-blur-sm text-white/80'>Happening</small>
               </div>
 
               <div className='absolute z-20 w-full text-left h-fit p-4 bottom-0 flex bg-gradient-to-b from-white/0 via-[#232323]/30 to-black/70'>
-                <motion.span className=' font-integral leading-none'>Asia’s premier crypto</motion.span>
+                <motion.span className=' font-integral leading-none'>{event.title}</motion.span>
               </div>
             </motion.div>
           ))}

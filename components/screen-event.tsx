@@ -13,8 +13,6 @@ export default function ScreenEvent({ event }: ScreenEventProps) {
     return null
   }
 
-  const handleConnect = () => {}
-
   return (
     <motion.section
       initial={{ opacity: 0, scale: 0.95 }}
@@ -57,21 +55,30 @@ export default function ScreenEvent({ event }: ScreenEventProps) {
                       <span className='font-lemon text-sm'>
                         {attendee.firstName} {attendee.lastName}
                       </span>
-                      <small className='text-xs text-white/80'>@{attendee.username}</small>
+                      <small className='text-xs text-white/80'>@{attendee.username.split('/')[3]}</small>
                     </div>
                   </motion.button>
                 </Drawer.Trigger>
                 <Drawer.Portal>
                   <Drawer.Overlay className='fixed inset-0 z-20 bg-black/40' />
-                  <Drawer.Content className='bg-zinc-100 flex flex-col h-[55%] rounded-t-[20px] mt-24 fixed z-30 bottom-0 left-0 right-0'>
-                    <div className='p-4 bg-white rounded-t-[20px] flex-1'>
-                      <div className='max-w-md mx-auto'>
-                        <Drawer.Title className='font-medium mb-4'>Unstyled drawer for React.</Drawer.Title>
-                        <p className='text-zinc-600 mb-2'>This component can be used as a replacement for a Dialog on mobile and tablet devices.</p>
-                        <p className='text-zinc-600 mb-8'>It uses {index}</p>
-                        <Link href={'tg://openmessage?user_id=932607121'}>Connect</Link>
-                        <Link href={'tg://user?id=932607121'}>Connect</Link>
-                        {/* <button className='text-black' onClick={()}>Connect</button> */}
+                  <Drawer.Content className='bg-zinc-100 flex flex-col h-[150px] rounded-t-[20px] mt-28 fixed z-30 bottom-0 left-0 right-0'>
+                    <div className='p-4  bg-white text-black rounded-t-[20px] flex-1'>
+                      <Drawer.Title className='font-medium'></Drawer.Title>
+                      <div className='flex items-center justify-between gap-4 px-2 p-4'>
+                        <div className='flex items-center gap-4'>
+                          <div className='avatar-symbol-mask w-20 h-20 aspect-square'>
+                            <Avatar name={attendee.id.toString()} size={80} square={true} />
+                          </div>
+                          <div className='flex flex-col'>
+                            <span className=' font-integral'>
+                              {attendee.firstName} {attendee.lastName}
+                            </span>
+                            <small className='font-lemon text-default-400'>@{attendee.username.split('/')[3]}</small>
+                          </div>
+                        </div>
+                        <Link href={attendee.id}>
+                          <span className='p-2 bg-black font-lemon text-sm rounded-xl text-white px-4'>Say GM</span>
+                        </Link>
                       </div>
                     </div>
                   </Drawer.Content>

@@ -38,9 +38,9 @@ export default function ScreenHome({ events, onChangeEvent }: ScreenHomeProps) {
           <div className='w-1/2'>
             <span className='text-lg font-integral leading-none'>Asia’s premier crypto</span>
           </div>
-          <button className='p-2.5 py-1 bg-white/20 backdrop-blur-sm w-fit rounded-xl flex items-center justify-center'>
+          {/* <button className='p-2.5 py-1 bg-white/20 backdrop-blur-sm w-fit rounded-xl flex items-center justify-center'>
             <span className='text-sm text-white/80 font-lemon tracking-wide'>Check in</span>
-          </button>
+          </button> */}
         </div>
       </motion.section>
 
@@ -65,13 +65,13 @@ export default function ScreenHome({ events, onChangeEvent }: ScreenHomeProps) {
               onMouseUp={() => onChangeEvent(event)}
               className='w-full bg-red-400 rounded-[20px] overflow-hidden relative'
               style={{
-                height: 200 + Math.floor(Math.random() * 71) + 'px',
+                height: 200 + Math.floor(Math.random() * 80) + 'px',
               }}>
               <motion.img layoutId={`event-${event.id}-image`} src={event.image} alt='' className='w-auto h-[150%] object-cover' />
 
-              <div className='absolute z-20 w-[50%] h-fit p-2 top-0 '>
+              {/* <div className='absolute z-20 w-[50%] h-fit p-2 top-0 '>
                 <small className='leading-none p-2 bg-black/30 rounded-full px-3 py-1.5 font-lemon backdrop-blur-sm text-white/80'>Happening</small>
-              </div>
+              </div> */}
 
               <div className='absolute z-20 w-full text-left h-fit p-4 bottom-0 flex bg-gradient-to-b from-white/0 via-[#232323]/30 to-black/70'>
                 <motion.span className=' font-integral leading-none'>{event.title}</motion.span>

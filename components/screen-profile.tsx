@@ -7,17 +7,71 @@ import 'react-multi-carousel/lib/styles.css'
 interface ScreenProfileProps {
   user: User
 }
-
-const items = Array(5)
-  .fill(0)
-  .map((_, ind) => ({ id: `element-${ind}` }))
-
 const responsive = {
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 2,
   },
 }
+
+const DUMMY_EVENTS = [
+  {
+    id: 1,
+    title: 'Lens and ALLSHIPS: Mints & Music 🎶🌱',
+    description: 'Description 1',
+    badge: 'https://assets.poap.xyz/ebff9b0e-cfd1-4f7b-92e4-244e2fd1bcb1.png?size=large',
+    photos: [
+      {
+        id: 1,
+        url: 'https://cdn.evbstatic.com/s3-build/fe/build/images/75d81eed66f040a590ed5744b3367d8c-music.webp',
+      },
+      {
+        id: 2,
+        url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqQQMY6jSwfpK8Fi1bejywTRDW6WxgP8Z2Cw&s',
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: 'SheFi Brunch CDMX',
+    description: 'Description 1',
+    badge: 'https://assets.poap.xyz/3c5fed1a-67d9-4f75-8656-032336db8db6.gif?size=large',
+    photos: [
+      {
+        id: 1,
+        url: '/Selfie-Frame-Printing.jpg',
+      },
+      {
+        id: 2,
+        url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8hCA6FTkEVk61giUKx-QMih8NBnnxh3Mx6w&s',
+      },
+      {
+        id: 3,
+        url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeHXMtoM4kH9u0fzvU2TlogmdRmZt8bWRJppzCVX7crY8S74qSBBx3TFUtAitr0d5rQvk&usqp=CAU',
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: 'Woof Weekly #147',
+    description: 'Description 1',
+    badge: 'https://assets.poap.xyz/woof-weekly-23147-2024-logo-1723658830125.png?size=large',
+    photos: [
+      {
+        id: 1,
+        url: 'https://laputafarm.com/wp-content/uploads/2021/12/6222590fa85a62043b4b.jpg',
+      },
+      {
+        id: 2,
+        url: 'https://static.chotot.com/storage/chotot-kinhnghiem/c2c/2019/10/gia-cho-shiba-5-1024x1024.jpg',
+      },
+      {
+        id: 3,
+        url: 'https://shibainu.vn/wp-content/uploads/2022/04/imager_13038.jpg',
+      },
+    ],
+  },
+]
 
 export default function ScreenProfile({ user }: ScreenProfileProps) {
   return (
@@ -44,7 +98,7 @@ export default function ScreenProfile({ user }: ScreenProfileProps) {
       </div>
 
       <div className='font-lemon text-lg w-full flex flex-col gap-3 mt-4 text-black'>
-        {Array.from({ length: 3 }).map((_, index) => (
+        {DUMMY_EVENTS.map((event, index) => (
           <motion.section
             key={index}
             initial={{
@@ -65,16 +119,12 @@ export default function ScreenProfile({ user }: ScreenProfileProps) {
             }}
             className='flex flex-col gap-2'>
             <div className='w-3/4 text-black/90'>
-              <span>react-multi-carousel react-multi-carousel l</span>
+              <span>{event.title}</span>
             </div>
 
             <div className='flex gap-3 w-full overflow-auto'>
               <div className='badge-symbol-mask shadow-sm w-[100px] h-[100px] flex items-center justify-center relative'>
-                <img
-                  className='w-[120%] h-[120%] object-cover object-center'
-                  src='https://assets.poap.xyz/396d478f-fc6e-4f98-86e6-c1521bf8a250.gif?size=large'
-                  alt=''
-                />
+                <img className='w-[120%] h-[120%] object-cover object-center' src={event.badge} alt='' />
                 <img className='w-[95%] h-[95%] absolute z-10' src='/coven-symbol-dash.svg' alt='' />
               </div>
 
@@ -84,8 +134,10 @@ export default function ScreenProfile({ user }: ScreenProfileProps) {
                 transitionDuration={50}
                 responsive={responsive}
                 className='w-full'>
-                {items.map(({ id }) => (
-                  <div className='w-[130px] h-[180px] bg-red-400 rounded-2xl ml-3' title={id} key={id} />
+                {event.photos.map((photo) => (
+                  <div className='w-[130px] h-[180px] rounded-2xl ml-3' key={photo.url}>
+                    <img src={photo.url} alt='' className='w-full h-full object-cover rounded-2xl' />
+                  </div>
                 ))}
               </Carousel>
             </div>
